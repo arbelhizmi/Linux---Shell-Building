@@ -1,3 +1,18 @@
+/*
+CREATED BY: Arbel Hizmi
+Program Description:
+The following program is building a basic shell.
+the program will get a command from the user by using fgets and insert the command into buffer. 
+By using splitCommand function (preparing for the exec function)the program split the command that came from the user
+and insert the command to the first place, after arguments and finally null.
+The program would create a process by using fork, and in the process send the array of the command to execvp.
+In commandLoop all the logic of the program is happening, calling to the different functions
+the program would also support redirection and pipe, with using pipe and dup2 functions
+the program would support 4 types of commands: 
+1. pipe and redirection 2. pipe only 3. redirection only 4. no pipe and no redirection
+the program would use fork, pipe and dup2 functions for the different process
+*/
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
