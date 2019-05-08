@@ -1,23 +1,30 @@
-Exercise 1
-==========================================================
-CREATED BY : Arbel Hizmi.
-
-Program description:
+CREATED BY: Arbel Hizmi
+Program Description:
 The following program is building a basic shell.
 the program will get a command from the user by using fgets and insert the command into buffer. 
-By using get command function the program split the command that came from the user
+By using splitCommand function (preparing for the exec function)the program split the command that came from the user
 and insert the command to the first place, after arguments and finally null.
-The program would create a process by using fork, and in the process send the array of the command to execvp .
+The program would create a process by using fork, and in the process send the array of the command to execvp.
+In commandLoop all the logic of the program is happening, calling to the different functions
+the program would also support redirection and pipe, with using pipe and dup2 functions
+the program would support 4 types of commands: 
+1. pipe and redirection 2. pipe only 3. redirection only 4. no pipe and no redirection
+the program would use fork, pipe and dup2 functions for the different process
+details and specifications for each method, are commented above the function
 
 methods :
 
 ex1 :
 void commandLoop();
 void getPath();
-char* readLine();
-char** splitCommand(char* command);
-void exec_cmd(char **args);
-void free_arguments(char **args, char *cmd_copy, char* command);
+char **splitCommand(char *command);
+void exec_cmd(char **args, char *file_name, int sign);
+void free_arguments(char **args, char *cmd_copy);
+void search_pipe_in_command(char *cmd);
+char **split_pipe(char *cmd, int sign);
+void exec_pipe(char **left_cmd, char **right_cmd, char *file_name, int sign);
+int check_redirection(char *buffer);
+void redirection(char *file_name, int sign);
 int main()
 
 Compile and running: 

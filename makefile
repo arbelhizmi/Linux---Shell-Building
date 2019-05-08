@@ -1,4 +1,4 @@
-all: ex1.c
-	gcc ex1.c -o ex1
-all-GDB: ex1.c
-	gcc -g ex1.c -o ex1
+all: ex2.c
+	gcc ex2.c -o ex2
+all-GDB: ex2.c
+	gcc -g ex2.c -o ex2
